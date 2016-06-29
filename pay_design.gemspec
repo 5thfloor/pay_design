@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = PayDesign::VERSION
   spec.authors       = ["tnzk"]
   spec.email         = ["tnzk@tnzk.org"]
-  spec.license       = ["MIT"]
+  spec.licenses      = ["MIT"]
 
   spec.summary       = %q{Pay by PayDesign}
   spec.description   = %q{A think wrapper of PayDesign API for convenience store payment, pay-easy and some more.}
