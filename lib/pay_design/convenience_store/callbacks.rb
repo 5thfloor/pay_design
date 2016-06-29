@@ -1,10 +1,10 @@
 module PayDesign
   module ConvenienceStore
     module Callbacks
-      def request_payment(params)
+      def self.payment_registered(params)
         {
           deal_id: params["SID"],
-          remarks: params["FUKA"],
+          remarks: PayDesign.encode_to_utf8(params["FUKA"]),
         }
       end
     end
