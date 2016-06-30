@@ -12,7 +12,7 @@ module PayDesign
         KANA2:  PayDesign.encode_to_sjis(data[:first_name_kana]),
         YUBIN1: data[:postal_code_former],
         YUBIN2: data[:postal_code_latter],
-        TEL:    data[:tel],
+        TEL:    PaymentInfo.numerify(data[:tel]),
         ADR1:   PayDesign.encode_to_sjis(data[:address_former]),
         ADR2:   PayDesign.encode_to_sjis(data[:address_latter]),
         MAIL:   data[:email],
@@ -38,6 +38,10 @@ module PayDesign
     end
 
     private
+
+    def self.numerify(s)
+      s.is_a?(String) ? s.gsub(/\D/, '') : s
+    end
 
     def self.date_to_yyyymmdd(date_or_yyyymmdd)
       case date_or_yyyymmdd
