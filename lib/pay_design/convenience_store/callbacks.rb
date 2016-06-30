@@ -11,7 +11,7 @@ module PayDesign
         }
       end
 
-      def self.payment_cancelled
+      def self.payment_registering_cancelled
         # TODO: Nothing to do.
       end
 
