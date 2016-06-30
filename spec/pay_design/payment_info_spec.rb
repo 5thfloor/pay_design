@@ -10,6 +10,12 @@ describe PayDesign::PaymentInfo do
       expect(payment_info.data[:NAME1]).to eq(name_in_sjis)
     end
 
+    it 'removes all non-numeric characters from the telephone number' do
+      params = { tel: 'A0&_00-0c000-000X0' }
+      payment_info = PayDesign::PaymentInfo.new(params)
+      expect(payment_info.data[:TEL]).to eq('00000000000')
+    end
+
     it 'formats expire date to string in YYYYMMDD-style' do
       params = { expires_at: Date.today }
       payment_info = PayDesign::PaymentInfo.new(params)
