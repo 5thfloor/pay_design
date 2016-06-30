@@ -11,7 +11,7 @@ module PayDesign
         }
       end
 
-      def self.payment_registering_cancelled
+      def self.payment_registering_canceled
         # TODO: Nothing to do.
       end
 
@@ -29,7 +29,7 @@ module PayDesign
         }
       end
 
-      def self.payment_cancelled(params)
+      def self.payment_canceled(params)
         {
           notification_id: params["SEQ"],
           cancel_date:     Date.parse(params["DATE"]),

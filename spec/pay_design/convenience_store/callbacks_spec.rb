@@ -35,7 +35,7 @@ describe PayDesign::ConvenienceStore::Callbacks do
     end
   end
 
-  describe '.payment_cancelled' do
+  describe '.payment_canceled' do
     let (:params) {
       {
         "SEQ"     => "123456789",
@@ -47,12 +47,12 @@ describe PayDesign::ConvenienceStore::Callbacks do
       }
     }
     it 'maps their parametes to a hash with more meaningful fields' do
-      completed_payment = PayDesign::ConvenienceStore::Callbacks.payment_cancelled(params)
+      completed_payment = PayDesign::ConvenienceStore::Callbacks.payment_canceled(params)
       expect(completed_payment[:deal_id]).to eq("0123456789ABCDEF")
       expect(completed_payment[:remarks]).to eq("深谷")
     end
     it 'maps its date and time fields to single datetime field' do
-      completed_payment = PayDesign::ConvenienceStore::Callbacks.payment_cancelled(params)
+      completed_payment = PayDesign::ConvenienceStore::Callbacks.payment_canceled(params)
       expect(completed_payment[:cancel_date].class).to eq(Date)
     end
   end
