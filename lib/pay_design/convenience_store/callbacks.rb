@@ -26,10 +26,6 @@ module PayDesign
         }
       end
 
-      def self.payment_registering_canceled
-        # TODO: Nothing to do.
-      end
-
       def self.payment_completed(params)
         datetime_string = params["DATE"] + " " + params["TIME"]
         {
