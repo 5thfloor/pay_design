@@ -11,6 +11,21 @@ module PayDesign
         }
       end
 
+      def self.payment_registering_completed(params)
+        datetime_string = params["DATE"] + " " + params["TIME"]
+        {
+          paid_at:         DateTime.parse(datetime_string),
+          ip_code:         params["IP"],
+          deal_id:         params["SID"],
+          amount:          params["KINGAKU"],
+          store_type:      params["CVS"],
+          payment_number:  params["SHNO"],
+          remarks:         PayDesign.encode_to_utf8(params["FUKA"]),
+          url:             params["FURL"],
+          fee:             params["FEE"],
+        }
+      end
+
       def self.payment_registering_canceled
         # TODO: Nothing to do.
       end
